@@ -11,9 +11,11 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,13 +58,29 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void on_button_click(View view) {
+    public void on_button_click(View view){
 
        TextView tv = this.findViewById(R.id.textView);
+       TextView tv2 = this.findViewById(R.id.textView2);
+       TextView tv3 = this.findViewById(R.id.textView3);
+       EditText numberInput = this.findViewById(R.id.editText);
 
        Random r = new Random();
-       int number = r.nextInt(7);
+       int number = r.nextInt(6);
 
        tv.setText(Integer.toString(number));
+       String UserInputString = numberInput.getText().toString();
+       String PointsInput = tv3.getText().toString();
+       int Points = Integer.parseInt(tv3.getText().toString());
+
+       int IntnumberInput = new Integer (UserInputString).intValue();
+       if (IntnumberInput == number) {
+           tv2.setText("Congratulations");
+           Points++;
+           tv3.setText(Integer.toString(Points));
+       }
+       else{
+           tv2.setText("");
+       }
     }
 }
