@@ -26,7 +26,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int count = 0;
-    static ArrayList<String> list = new ArrayList<>();
+    static ArrayList<String> questions = new ArrayList<>();
     public static final String EXTRA_MESSAGE = "Hey";
 
     @Override
@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        list.add("If you would go anywhere in the world, where would you go?");
-        list.add("If you were stranded on a desert island, what three things would you want to take with you?");
-        list.add("If you could eat only one food for the rest of your life, what would that be?");
-        list.add("If you won a million dollars, what is the first thing you would buy?");
-        list.add("If you could spend the day with one fictional character, who would it be?");
-        list.add("If you found a magic lantern and a genie gave you a wishes, what would you wish?");
+        questions.add("If you would go anywhere in the world, where would you go?");
+        questions.add("If you were stranded on a desert island, what three things would you want to take with you?");
+        questions.add("If you could eat only one food for the rest of your life, what would that be?");
+        questions.add("If you won a million dollars, what is the first thing you would buy?");
+        questions.add("If you could spend the day with one fictional character, who would it be?");
+        questions.add("If you found a magic lantern and a genie gave you a wishes, what would you wish?");
     }
 
     public void sendMessage(View view) {
@@ -123,9 +123,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv4 = this.findViewById(R.id.Score);
 
-        int number3 = Random(list.size());
+        int number3 = Random(questions.size());
 
-        tv4.setText(list.get(number3));
+        tv4.setText(questions.get(number3));
     }
 
     public int Random(int n) {
